@@ -1,0 +1,47 @@
+  .Url {
+    margin-top: 20px;
+    margin-right: 0%;
+    display: inline-block;
+    width: 60%;
+    font-size: 25px;
+    border-radius: 10px;
+    padding: 12px 20px; /* Add some padding for better readability */
+    background-color: #f1f1f1; /* Add a light gray background color */
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .Url:focus {
+    background-color: #fff; /* Change the background color on focus */
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1); /* Add a shadow on focus */
+  }
+  .Url:hover{
+    transform: translateY(-5px);
+  }
+  
+  .SubmitButton {
+    margin-top: 20px;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 20px;
+    width: 12%;
+    padding: 10px;
+    background: linear-gradient(to right, aliceblue, #ad104a);
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .SubmitButton:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(to right, #ad104a,aliceblue);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  

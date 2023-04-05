@@ -1,0 +1,55 @@
+.signIn {
+    background-size: cover;
+    flex: 1;
+    width: 100vw;
+    height: 100vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+  }
+  
+  .logInForm {
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  input {
+    padding: 5px;
+    margin: 3px 0px;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  #logIn {
+    background-color: #7B014C;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #logIn:hover {
+    background-color: #A34786;
+  }
+  
+  .loginForm2 {
+    background-color: #fff;
+    padding: 8px;
+    margin-left: 22px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
