@@ -26,11 +26,27 @@ img {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.5px;
-    /* text-transform: uppercase; */
     transition: all 0.2s ease-in-out;
   }
   
   a:hover {
     color: #7B014C;
   }
+  .logOut{
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  .logOut:hover{
+    color: #7B014C;
+  }
   
+  .loginButton{
+    margin-right: 20px;
+  }
+  .signUpButton{
+    margin-right: 20px;
+  }

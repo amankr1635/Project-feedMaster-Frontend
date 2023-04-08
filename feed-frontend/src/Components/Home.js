@@ -1,18 +1,51 @@
-import React from 'react'
-import  "./Home.css"
-import { Link } from 'react-router-dom'
+import React , {useState} from 'react';
+import "./Home.css";
+import {  useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 export default function Home() {
-  return (
-    // <div classNameNameName='urlInput'>
-    //         <input type = "text" url= "url" id="url" placeholder='Url'/>
-    // </div>
-    <div className='Input'>
-    {/* <form className="serachBar" role="search"> */}
-    <input className="Url" type="url" placeholder="Url" aria-label="Url"/>
-    <button className="SubmitButton" type="submit">Submit</button>
-  {/* </form> */}
-     </div>
+  const Navigate=useNavigate();
+  const [url, setUrl] = useState("");
+  const [htmlData, setHtmlData] = useState("");
+  const [title, setTitle] = useState("");
+  const [authorName, setAuthorName] = useState("");
+  const [providerName, setProviderName] = useState("");
 
+  const postUrl = async function() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      Navigate("/SignIn");
+    } else if(!url) {
+      window.alert("url cannot be Empty");
+    } else {
+      const headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      };
+      const data = await axios.post("http://localhost:3001/post", { url }, { headers });
+      console.log(data);
+      if (data.data.status === true) {
+        setHtmlData(data.data.data.html);
+        setTitle(data.data.data.title);
+        setAuthorName(data.data.data.author_name);
+        setProviderName(data.data.data.provider_name);
+        setUrl("");
+      } else {
+        window.alert(data.data.message);
+      }
+    }
+  };
+
+  return (
+    <div className='Input'>
+      <input className="Url" type="url" value={url} placeholder="Url" aria-label="Url" onChange={(e) => { setUrl(e.target.value) }} />
+      <button className="SubmitButton" type="submit" onClick={postUrl}>Submit</button>
+      <div className='Response'>
+        {title && <h2>{title}</h2>}
+        {authorName && <p>Author: {authorName}</p>}
+        {providerName && <p>Provider: {providerName}</p>}
+        {htmlData && <div dangerouslySetInnerHTML={{ __html: htmlData }}></div>}
+      </div>
+    </div>
   )
 }
