@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import "./SignIn.css";
 import { Link ,useNavigate} from 'react-router-dom';
+import { useAppState } from '../store/app.state';
 import axios from "axios"
 
 
 export default function SignIn() {
-  
+
+  const setToken =useAppState((state)=> state.setToken);
+
   const Navigate= useNavigate();
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
@@ -30,6 +33,7 @@ export default function SignIn() {
 
 
 if(data.data.status===true){
+  setToken(data.data.token)
   localStorage.setItem("token", (data.data.token))
   localStorage.setItem("name", (data.data.name))
 

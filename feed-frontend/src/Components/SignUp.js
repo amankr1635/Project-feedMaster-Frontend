@@ -39,6 +39,7 @@ export default function SignUP() {
 
 });
 console.log(data)
+// data.status =
 if(data.data.status===true){
   // window.alert(data.data.message);
   Navigate("/signIn")

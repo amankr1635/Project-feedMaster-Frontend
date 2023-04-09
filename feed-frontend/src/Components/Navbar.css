@@ -18,7 +18,10 @@ img {
   li {
     list-style: none;
     padding: 1px 15px;
+    display: flex;
+    align-items: center;
   }
+ 
   
   a {
     text-decoration: none;
@@ -49,4 +52,13 @@ img {
   }
   .signUpButton{
     margin-right: 20px;
+  }
+  .myPostButton {
+    padding-right: 20px;
+  }
+  
+  .nav-menu-divider {
+    margin: 0 10px;
+    font-weight: bold;
+    color: #666;
   }
