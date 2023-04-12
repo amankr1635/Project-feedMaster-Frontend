@@ -5,6 +5,7 @@ import { useAppState } from '../store/app.state';
 import axios from "axios"
 
 
+
 export default function SignIn() {
 
   const setToken =useAppState((state)=> state.setToken);
@@ -13,35 +14,21 @@ export default function SignIn() {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   
-  const LoginPage= async function(){
-    if(email === "" && password === "") {
-      window.alert("Please enter Email and Password.");
-      return;
-    }
-    if(email===""){
-      window.alert("Please enter your Email.")
-      return;
-    }
-    if(password===""){
-      window.alert("Please enter your Password.")
-      return;
-    }
-    const data=  await axios.post("http://localhost:3001/login",{
+  const LoginFunction= async function(){
+      await axios.post("http://localhost:3001/login",{
       email,
       password,
-  });
-
-
-if(data.data.status===true){
-  setToken(data.data.token)
-  localStorage.setItem("token", (data.data.token))
-  localStorage.setItem("name", (data.data.name))
-
+  })
+  .then((res)=>{
+    setToken(res.data.token)
+  localStorage.setItem("token", (res.data.token))
+  localStorage.setItem("name", JSON.stringify(res.data.name))
+  localStorage.setItem("userId",res.data.userId)
   Navigate("/")
-}
-else{
-  window.alert(data.data.message)
-}
+  })
+.catch((err)=>{
+  window.alert(err.response.data.message)
+})
 }
 
   return (
@@ -55,7 +42,7 @@ else{
             <input type = "password" name= "password" id="password"value={password} placeholder='Password'onChange={(e)=>{setPassword(e.target.value)}}/>
             </div>
             <input
-             type= "submit"  id = "logIn" value ="Sign In" onClick={LoginPage}/>
+             type= "submit"  id = "logIn" value ="Sign In" onClick={LoginFunction}/>
         
             </div>
             <div className='loginForm2'>

@@ -43,6 +43,7 @@ img {
     transition: all 0.2s ease-in-out;
     cursor: pointer;
   }
+  
   .logOut:hover{
     color: #7B014C;
   }
@@ -54,6 +55,7 @@ img {
     margin-right: 20px;
   }
   .myPostButton {
+    margin-left: 10px;
     padding-right: 20px;
   }
   
@@ -62,3 +64,5 @@ img {
     font-weight: bold;
     color: #666;
   }
+
+  

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import logo from "./Img/logo.png"
 import './Navbar.css';
-import { Link ,useNavigate} from "react-router-dom"
+import { Link, useNavigate,useParams } from "react-router-dom"
 import { useAppState } from '../store/app.state';
 
-export default function Navbar() {
+export default function Navbar({userId}) {
   const Navigate = useNavigate();
-const token = useAppState(state=>state.token)
+  const token = useAppState(state => state.token)
+  const userName = localStorage.getItem("name");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -20,30 +21,33 @@ const token = useAppState(state=>state.token)
     if (localStorage.getItem('token') !== null) {
       localStorage.removeItem('token');
       localStorage.removeItem('name');
+      localStorage.removeItem('userId');
       Navigate("/")
       setIsLoggedIn(false);
     }
   }
+
   return (
     <div className='navbar'>
       <Link to="/">
-        <img src={logo} alt="/logo" style={{ width: '200px', height: 'auto' }}/>
+        <img src={logo} alt="/logo" style={{ width: '200px', height: 'auto' }} />
       </Link>
-      <ul className ="nav-menu">
+      <ul className="nav-menu">
         {isLoggedIn ?
-        <li>
-           <Link className='myPostButton' to="/Mypost">
-            MyPost
-          </Link>
-          <span className="nav-menu-divider">|</span>
-          <li className="logOut" onClick={handleLogout}>Log out</li> 
-        </li>
+          <li>
+            <li className='userName'> Hii {JSON.parse(userName)} !</li>
+            <Link className='myPostButton' to={`/myPosts/${userId}`}>
+              MyPost
+            </Link>
+            <span className="nav-menu-divider">|</span>
+            <li className="logOut" onClick={handleLogout}>Log out </li>
+          </li>
           :
           <li>
-            <Link className= "signUpButton" to ="/SignUp">
+            <Link className="signUpButton" to="/SignUp">
               SignUp
             </Link>
-            <Link className= "loginButton" to ="/SignIn">
+            <Link className="loginButton" to="/SignIn">
               Log In
             </Link>
           </li>

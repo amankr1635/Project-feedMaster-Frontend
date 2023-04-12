@@ -12,40 +12,20 @@ export default function SignUP() {
   const [phone,setPhone]=useState("");
 
   const postData= async function(){
-    if(name===""){
-      window.alert("Please enter your Name")
-      return;
-    }
-    if(email===""){
-      window.alert("Please enter your Email")
-      return;
-    }
-    if(phone===""){
-      return window.alert("Please enter your Phone No.")
-      
-    }
-    if(!Number(phone)){
-      return window.alert("please enter a valid Phone No.")
-    }
-    if(password===""){
-      window.alert("Please enter your Password")
-      return ;
-    }
-  const data=  await  axios.post("http://localhost:3001/signUp",{
+    
+  await  axios.post("http://localhost:3001/signUp",{
     name,
     email,
     phone,
     password,
 
-});
-console.log(data)
-// data.status =
-if(data.data.status===true){
-  // window.alert(data.data.message);
+})
+.then((res)=>{
   Navigate("/signIn")
-}else{
-  window.alert(data.data.message)
-}
+})
+.catch((err)=>{
+  window.alert(err.response.data.message)
+})
 
 }
   return (
