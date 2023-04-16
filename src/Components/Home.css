@@ -1,0 +1,143 @@
+  .Url {
+    margin-top: 20px;
+    margin-right: 0%;
+    display: inline-block;
+    width: 60%;
+    font-size: 25px;
+    border-radius: 10px;
+    padding: 12px 20px;
+    background-color: #f1f1f1; 
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .Url:focus {
+    background-color: #fff; 
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1); 
+  }
+  .Url:hover{
+    transform: translateY(-5px);
+  }
+  
+  .SubmitButton {
+    margin-top: 20px;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 20px;
+    width: 12%;
+    padding: 10px;
+    background: linear-gradient(to right, aliceblue, #ad104a);
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .SubmitButton:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(to right, #ad104a,aliceblue);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+   .Response {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .Response h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .Response p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+
+  .AllPosts {
+    margin-top: 2rem;
+  }
+  
+  .AllPosts h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .AllPosts li {
+    margin-bottom: 1rem;
+  }
+  
+  .AllPosts li h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .AllPosts li p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .AllPosts li div {
+    margin-top: 0.5rem;
+  }
+  
+  .post-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .post-item {
+    position: relative;
+  }
+  .prev,.next{
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .prev:active {
+    transform: translateX(-5px);
+  }
+  .next:active {
+    transform: translateX(5px);
+  }
+  .pageNo {
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    
+  }
+  .prevNext {
+    display: flex; 
+    align-items: center;
+     justify-content: center; 
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .shareIcon {
+    position: fixed;
+    bottom: 20px;
+    right: 22px;
+  cursor: pointer;
+  }
+  
+  .homeShareButton {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

@@ -1,0 +1,67 @@
+#quotes{
+    font-family: 'Times New Roman', Times, serif;
+   font-weight: bold;
+}
+.signUp {
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .form {
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .singUpLogo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 20px;
+  }
+  
+  input {
+    padding: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  #submit-btn {
+    background-color: #7B014C;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #submit-btn:hover {
+    background-color: #A34786;
+  }
+  
+  .form2 {
+    background-color: #fff;
+    padding: 8px;
+    margin-left: 22px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+  }
+  

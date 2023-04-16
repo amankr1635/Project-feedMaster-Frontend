@@ -1,0 +1,57 @@
+.myPost{
+display: inline-block;
+}
+.Response {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+  }
+  .Response:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .Response h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .Response p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+.delete-Icon{
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  font-size: 32px;
+  color: red;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.delete-Icon:hover {
+  color: #ff3333;
+  transform: scale(1.2);
+ 
+}
+.Response:hover .delete-Icon {
+  opacity: 1;
+}
+.shareButtons{
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.Response:hover .shareButtons {
+  opacity: 1;
+}
+
