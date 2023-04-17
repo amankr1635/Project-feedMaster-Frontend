@@ -26,10 +26,10 @@ export default function SignIn() {
   localStorage.setItem("name", JSON.stringify(res.data.name))
   localStorage.setItem("userId",res.data.userId)
   Swal.fire({
+    title: 'LogIn SucessFull',
     icon: 'success',
-    title: "LogIn SucessFull",
     confirmButtonColor: '#ad104a',
-  })
+  });
   Navigate("/")
   })
 .catch((err)=>{
