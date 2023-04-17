@@ -16,7 +16,7 @@ export default function SignIn() {
   const [password,setPassword]=useState("")
   
   const LoginFunction= async function(){
-      await axios.post("https://feed-master.onrender.com/login",{
+      await axios.post(`${process.env.REACT_APP_API_URL}login`,{
       email,
       password,
   })
@@ -25,11 +25,19 @@ export default function SignIn() {
   localStorage.setItem("token", (res.data.token))
   localStorage.setItem("name", JSON.stringify(res.data.name))
   localStorage.setItem("userId",res.data.userId)
-  Swal.fire("LogIn SucessFull")
+  Swal.fire({
+    icon: 'success',
+    title: "LogIn SucessFull",
+    confirmButtonColor: '#ad104a',
+  })
   Navigate("/")
   })
 .catch((err)=>{
-  Swal.fire(err.response.data.message)
+  Swal.fire({
+    title: err.response.data.message,
+    icon: 'error',
+    confirmButtonColor: '#ad104a',
+  });
 })
 }
 

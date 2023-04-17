@@ -14,17 +14,26 @@ export default function SignUP() {
 
   const postData= async function(){
     
-  await  axios.post("https://feed-master.onrender.com/signUp",{
+  await  axios.post(`${process.env.REACT_APP_API_URL}signUp`,{
     name,
     email,
     phone,
     password,
 })
 .then((res)=>{
+  Swal.fire({
+    title: 'Registered Sucessfully',
+    icon: 'success',
+    confirmButtonColor: '#ad104a',
+  });
   Navigate("/signIn")
 })
 .catch((err)=>{
-Swal.fire(err.response.data.message)
+Swal.fire({
+  title: err.response.data.message,
+  icon: 'error',
+  confirmButtonColor: '#ad104a',
+});
 })
 
 }

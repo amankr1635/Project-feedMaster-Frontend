@@ -20,22 +20,28 @@ export default function MyPost() {
   const [page, setPage] = useState(0); 
 
   useEffect(() => {
+    if (!token) {
+      console.log("i m here")
+      Navigate("/SignIn");
+      return;
+    }
     const fetchData = async () => {
-      if (!token) {
-        Navigate('/signIn');
-        return;
-      }
       const headers = {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       };
       try {
-        const response = await axios.get(`https://feed-master.onrender.com/myPosts/${userId}`, { 
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}myPosts/${userId}`, { 
           headers,
         });
         setPostData(response.data.data);
       } catch (err) {
-        Swal.fire(err.response.data.message)
+        Swal.fire({
+          title: 'Error!',
+          text: err.response.data.message,
+          icon: 'error',
+          confirmButtonColor: '#ad104a',
+        });
       }
     };
 
@@ -62,10 +68,15 @@ export default function MyPost() {
         };
     
         try {
-           axios.delete(`https://feed-master.onrender.com/post/${postId}`,{ headers});
+           axios.delete(`${process.env.REACT_APP_API_URL}post/${postId}`,{ headers});
           setPostData((prevData) => prevData.filter((post) => post._id !== postId));
         } catch (err) {
-          Swal.fire(err.response.data.message);
+          Swal.fire({
+            title: 'Error!',
+            text: err.response.data.message,
+            icon: 'error',
+            confirmButtonColor: '#ad104a',
+          });
         }
       };
       }

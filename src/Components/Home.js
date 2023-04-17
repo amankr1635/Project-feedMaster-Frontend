@@ -34,10 +34,10 @@ export default function Home() {
     try {
       let response;
       if(userId){
-         response =await axios.get(`https://feed-master.onrender.com/allPost?userId=${userId}`);
+         response =await axios.get(`${process.env.REACT_APP_API_URL}allPost?userId=${userId}`);
       }
       else{
-        response = await axios.get('https://feed-master.onrender.com/allPost');
+        response = await axios.get(`${process.env.REACT_APP_API_URL}allPost`);
       }
       setAllPosts(response.data.data);
     } catch (error) {
@@ -56,6 +56,7 @@ export default function Home() {
       Navigate("/SignIn");
     } else if (!url) {
       Swal.fire({
+        icon: 'error',
         title:'url cannot be Empty',
         confirmButtonColor: '#ad104a',
       })
@@ -65,7 +66,7 @@ export default function Home() {
         'Content-Type': 'application/json',
       };
       try {
-        const response = await axios.post('https://feed-master.onrender.com/post',{ url },{ headers } );
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}post`,{ url },{ headers } );
         setHtmlData(response.data.data.html);
         setTitle(response.data.data.title);
         setAuthorName(response.data.data.author_name);
@@ -79,7 +80,11 @@ export default function Home() {
         fetchAllPosts(); 
         setUrl('');
       } catch (error) {
-        Swal.fire(error.response.data.message)
+        Swal.fire({
+          title: error.response.data.message,
+          icon: 'error',
+          confirmButtonColor: '#ad104a',
+        });
       }
     }
   };
@@ -135,7 +140,7 @@ export default function Home() {
             {authorName && <p>Author: {authorName}</p>}
             {providerName && <p>Provider: {providerName}</p>}
             {htmlData && (
-              <div dangerouslySetInnerHTML={{ __html: htmlData }}></div>
+              <div  dangerouslySetInnerHTML={{ __html: htmlData }}></div>
               )}
           </li>
               </ul>
