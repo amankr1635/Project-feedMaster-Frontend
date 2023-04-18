@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axios from "axios";
 import Swal from 'sweetalert2';
 
@@ -11,6 +11,21 @@ export default function SignUP() {
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
   const [phone,setPhone]=useState("");
+
+  const token = localStorage.getItem("token");
+
+  useEffect(()=>{
+  
+    if(token){
+      Swal.fire({
+        title: 'User Already logged in',
+        icon: 'error',
+        confirmButtonColor: '#ad104a',
+      });
+      Navigate("/")
+      return;
+    }
+  },[token])
 
   const postData= async function(){
     

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./SignIn.css";
 import { Link ,useNavigate} from 'react-router-dom';
 import { useAppState } from '../store/app.state';
@@ -15,6 +15,21 @@ export default function SignIn() {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   
+const token = localStorage.getItem("token");
+
+useEffect(()=>{
+  if(token){
+    Swal.fire({
+      title: 'User Already logged in',
+      icon: 'error',
+      confirmButtonColor: '#ad104a',
+    });
+    Navigate("/")
+    return;
+  }
+},[token])
+
+
   const LoginFunction= async function(){
       await axios.post(`${process.env.REACT_APP_API_URL}login`,{
       email,
