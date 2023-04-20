@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import {Link, useNavigate, useLocation,  } from 'react-router-dom';
+import {Link, useNavigate, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import { GrNext,GrPrevious } from 'react-icons/gr';
 import { FaShare } from 'react-icons/fa';
@@ -41,7 +41,11 @@ export default function Home() {
       }
       setAllPosts(response.data.data);
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        title: error.response.data.message,
+        icon: 'error',
+        confirmButtonColor: '#ad104a',
+      });
     }
   };
 

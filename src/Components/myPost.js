@@ -21,7 +21,6 @@ export default function MyPost() {
 
   useEffect(() => {
     if (!token) {
-      console.log("i m here")
       Navigate("/SignIn");
       return;
     }
